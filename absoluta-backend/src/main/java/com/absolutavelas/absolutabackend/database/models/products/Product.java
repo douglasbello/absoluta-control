@@ -86,44 +86,44 @@ public abstract class Product {
         this.stockAmount--;
     }
 
-    public abstract static class Builder {
+    public abstract static class Builder<T extends Product> {
         protected String name;
         protected BigDecimal price;
         protected String description;
         protected Boolean isActive = true;
         protected Long stockAmount;
 
-        public Builder name(String name) {
+        public Builder<T> name(String name) {
             this.name = name;
 
             return this;
         }
 
-        public Builder price(BigDecimal price) {
+        public Builder<T> price(BigDecimal price) {
             this.price = price;
 
             return this;
         }
 
-        public Builder description(String description) {
+        public Builder<T> description(String description) {
             this.description = description;
 
             return this;
         }
 
-        public Builder isActive(Boolean isActive) {
+        public Builder<T> isActive(Boolean isActive) {
             this.isActive = isActive;
 
             return this;
         }
 
-        public Builder stockAmount(Long stockAmount) {
+        public Builder<T> stockAmount(Long stockAmount) {
             this.stockAmount = stockAmount;
 
             return this;
         }
 
-        public abstract Product build();
+        public abstract T build();
     }
 
     @Override

@@ -28,7 +28,7 @@ public class Candle extends Product {
         this.flavour = flavour;
     }
 
-    public static final class Builder extends Product.Builder {
+    public static final class Builder extends Product.Builder<Candle> {
         private CandleFlavour flavour;
 
         public Builder flavour(CandleFlavour flavour) {

@@ -18,7 +18,7 @@ public class Homespray extends Product {
         this.flavour = builder.flavour;
     }
 
-    public static final class Builder extends Product.Builder {
+    public static final class Builder extends Product.Builder<Homespray> {
         private HomesprayFlavour flavour;
 
         public Builder flavour(HomesprayFlavour flavour) {
@@ -28,7 +28,7 @@ public class Homespray extends Product {
         }
 
         @Override
-        public Product build() {
+        public Homespray build() {
             return new Homespray(this);
         }
     }
