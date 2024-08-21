@@ -16,7 +16,7 @@ public class AbsolutaBackendApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Candle candle = (Candle) new Candle.Builder()
+        Candle candle = new Candle.Builder()
                 .name("Vela")
                 .stockAmount(200L)
                 .price(new BigDecimal("29.90"))
