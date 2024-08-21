@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: absoluta-backend
+    profiles:
+        active: test
+    main:
+        lazy-initialization: true
+    jpa:
+        open-in-view: true
