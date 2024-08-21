@@ -86,7 +86,7 @@ public abstract class Product {
         this.stockAmount--;
     }
 
-    public abstract static class Builder {
+    protected abstract static class Builder {
         protected String name;
         protected BigDecimal price;
         protected String description;
