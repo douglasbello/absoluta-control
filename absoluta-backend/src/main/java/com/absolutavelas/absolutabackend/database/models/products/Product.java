@@ -1,8 +1,10 @@
 package com.absolutavelas.absolutabackend.database.models.products;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -22,6 +24,11 @@ public abstract class Product {
     protected Boolean isActive = true;
     @Column(name = "stock_amount")
     protected Long stockAmount;
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     public Product() {
     }
@@ -80,6 +87,22 @@ public abstract class Product {
 
     public void setStockAmount(Long stockAmount) {
         this.stockAmount = stockAmount;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public void sale() {

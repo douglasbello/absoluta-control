@@ -1,7 +1,9 @@
 package com.absolutavelas.absolutabackend.database.models.products;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,6 +16,11 @@ public class HomesprayFlavour {
     private UUID identifier;
     @Column(name = "flavour", length = 50)
     private String flavour;
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     public HomesprayFlavour() {
     }
@@ -37,6 +44,22 @@ public class HomesprayFlavour {
 
     public void setFlavour(String flavour) {
         this.flavour = flavour;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
