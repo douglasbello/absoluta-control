@@ -7,5 +7,6 @@ public record CandleRequest(String name,
                             BigDecimal price,
                             String description,
                             Boolean isActive,
-                            Long stockAmount) {
+                            Long stockAmount,
+                            UUID flavour) {
 }

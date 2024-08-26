@@ -3,8 +3,10 @@ package com.absolutavelas.absolutabackend.database.models.products;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
-@Entity(name = "tb_homesprays")
+@Entity
+@Table(name = "tb_homesprays")
 public class Homespray extends Product {
     @ManyToOne
     @JoinColumn(name = "flavour")

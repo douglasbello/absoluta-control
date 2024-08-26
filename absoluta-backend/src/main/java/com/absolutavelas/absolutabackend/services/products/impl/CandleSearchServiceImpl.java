@@ -1,8 +1,8 @@
-package com.absolutavelas.absolutabackend.services.products.candles.impl;
+package com.absolutavelas.absolutabackend.services.products.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.database.repositories.products.CandleRepository;
-import com.absolutavelas.absolutabackend.services.products.candles.ProductSearchService;
+import com.absolutavelas.absolutabackend.services.products.ProductSearchService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

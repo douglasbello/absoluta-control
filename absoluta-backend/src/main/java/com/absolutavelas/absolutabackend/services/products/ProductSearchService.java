@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.services.products.candles;
+package com.absolutavelas.absolutabackend.services.products;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
