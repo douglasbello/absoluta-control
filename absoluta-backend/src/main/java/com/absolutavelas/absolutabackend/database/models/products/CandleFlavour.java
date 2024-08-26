@@ -25,8 +25,7 @@ public class CandleFlavour {
     public CandleFlavour() {
     }
 
-    public CandleFlavour(UUID identifier, String flavour) {
-        this.identifier = identifier;
+    public CandleFlavour(String flavour) {
         this.flavour = flavour;
     }
 

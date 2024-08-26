@@ -25,8 +25,7 @@ public class HomesprayFlavour {
     public HomesprayFlavour() {
     }
 
-    public HomesprayFlavour(UUID identifier, String flavour) {
-        this.identifier = identifier;
+    public HomesprayFlavour(String flavour) {
         this.flavour = flavour;
     }
 
