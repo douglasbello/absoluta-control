@@ -1,38 +1,36 @@
 package com.absolutavelas.absolutabackend.database.models.products;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_candles")
 public class Candle extends Product {
-    @ManyToOne
-    @JoinColumn(name = "flavour")
-    private CandleFlavour flavour;
+    private UUID flavourIdentifier;
 
     public Candle() {
     }
 
     public Candle(Builder builder) {
         super(builder);
-        this.flavour = builder.flavour;
+        this.flavourIdentifier = builder.flavourIdentifier;
     }
 
-    public CandleFlavour getFlavour() {
-        return flavour;
+    public UUID getFlavourIdentifier() {
+        return flavourIdentifier;
     }
 
-    public void setFlavour(CandleFlavour flavour) {
-        this.flavour = flavour;
+    public void setFlavourIdentifier(UUID flavourIdentifier) {
+        this.flavourIdentifier = flavourIdentifier;
     }
 
     public static final class Builder extends Product.Builder<Candle> {
-        private CandleFlavour flavour;
+        private UUID flavourIdentifier;
 
-        public Builder flavour(CandleFlavour flavour) {
-            this.flavour = flavour;
+        public Builder flavour(UUID flavourIdentifier) {
+            this.flavourIdentifier = flavourIdentifier;
 
             return this;
         }
@@ -46,7 +44,7 @@ public class Candle extends Product {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Candle{");
-        sb.append("flavour=").append(flavour);
+        sb.append("flavour=").append(flavourIdentifier);
         sb.append(", identifier=").append(identifier);
         sb.append(", name='").append(name).append('\'');
         sb.append(", price=").append(price);

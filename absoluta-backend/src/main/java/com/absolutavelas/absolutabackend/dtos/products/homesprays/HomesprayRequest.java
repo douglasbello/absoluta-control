@@ -8,5 +8,6 @@ public record HomesprayRequest(String name,
                                String description,
                                Boolean isActive,
                                Long stockAmount,
+                               UUID size,
                                UUID flavour) {
 }

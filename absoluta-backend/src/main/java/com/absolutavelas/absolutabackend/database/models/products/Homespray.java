@@ -1,30 +1,28 @@
 package com.absolutavelas.absolutabackend.database.models.products;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_homesprays")
 public class Homespray extends Product {
-    @ManyToOne
-    @JoinColumn(name = "flavour")
-    private HomesprayFlavour flavour;
+    @Column(name = "flavour_identifier", length = 36)
+    private UUID flavourIdentifier;
 
     public Homespray() {
     }
 
     public Homespray(Builder builder) {
         super(builder);
-        this.flavour = builder.flavour;
+        this.flavourIdentifier = builder.flavourIdentifier;
     }
 
     public static final class Builder extends Product.Builder<Homespray> {
-        private HomesprayFlavour flavour;
+        private UUID flavourIdentifier;
 
-        public Builder flavour(HomesprayFlavour flavour) {
-            this.flavour = flavour;
+        public Builder flavour(UUID flavourIdentifier) {
+            this.flavourIdentifier = flavourIdentifier;
 
             return this;
         }
@@ -35,18 +33,18 @@ public class Homespray extends Product {
         }
     }
 
-    public HomesprayFlavour getFlavour() {
-        return flavour;
+    public UUID getFlavourIdentifier() {
+        return flavourIdentifier;
     }
 
-    public void setFlavour(HomesprayFlavour flavour) {
-        this.flavour = flavour;
+    public void setFlavourIdentifier(UUID flavourIdentifier) {
+        this.flavourIdentifier = flavourIdentifier;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Homespray{");
-        sb.append("flavour=").append(flavour);
+        sb.append("flavour=").append(flavourIdentifier);
         sb.append(", identifier=").append(identifier);
         sb.append(", name='").append(name).append('\'');
         sb.append(", price=").append(price);

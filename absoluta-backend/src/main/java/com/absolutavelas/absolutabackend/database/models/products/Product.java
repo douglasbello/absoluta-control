@@ -24,6 +24,8 @@ public abstract class Product {
     protected Boolean isActive = true;
     @Column(name = "stock_amount")
     protected Long stockAmount;
+    @Column(name = "size_identifier", length = 36)
+    private UUID sizeIdentifier;
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
@@ -39,6 +41,7 @@ public abstract class Product {
         this.description = builder.description;
         this.isActive = builder.isActive;
         this.stockAmount = builder.stockAmount;
+        this.sizeIdentifier = builder.sizeIdentifier;
     }
 
     public UUID getIdentifier() {
@@ -89,6 +92,14 @@ public abstract class Product {
         this.stockAmount = stockAmount;
     }
 
+    public UUID getSizeIdentifier() {
+        return sizeIdentifier;
+    }
+
+    public void setSizeIdentifier(UUID sizeIdentifier) {
+        this.sizeIdentifier = sizeIdentifier;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -115,6 +126,7 @@ public abstract class Product {
         protected String description;
         protected Boolean isActive = true;
         protected Long stockAmount;
+        protected UUID sizeIdentifier;
 
         public Builder<T> name(String name) {
             this.name = name;
@@ -142,6 +154,12 @@ public abstract class Product {
 
         public Builder<T> stockAmount(Long stockAmount) {
             this.stockAmount = stockAmount;
+
+            return this;
+        }
+
+        public Builder<T> size(UUID sizeIdentifier) {
+            this.sizeIdentifier = sizeIdentifier;
 
             return this;
         }
