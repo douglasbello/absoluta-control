@@ -1,6 +1,6 @@
 package com.absolutavelas.absolutabackend.services.marketplaces.types;
 
-import com.absolutavelas.absolutabackend.database.models.products.MarketplaceType;
+import com.absolutavelas.absolutabackend.database.models.marketplaces.MarketplaceType;
 
 import java.util.List;
 

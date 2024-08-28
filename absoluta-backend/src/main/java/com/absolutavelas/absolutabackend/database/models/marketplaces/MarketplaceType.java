@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.database.models.products;
+package com.absolutavelas.absolutabackend.database.models.marketplaces;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
