@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface CandleFlavourRepository extends JpaRepository<CandleFlavour, UUID> {
-    @Query(value = "SELECT f FROM CandleFlavour f WHERE LOWER(f.flavour) LIKE LOWER(CONCAT('%', :flavour, '%'))")
+    @Query(value = "SELECT f FROM CandleFlavour f WHERE LOWER(f.flavour) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<CandleFlavour> findByFlavour(@Param("name") String flavour);
 }
