@@ -2,7 +2,7 @@ package com.absolutavelas.absolutabackend.services.products.candles.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.database.repositories.products.CandleRepository;
-import com.absolutavelas.absolutabackend.dtos.candles.CandleRequest;
+import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 import com.absolutavelas.absolutabackend.services.products.candles.CandleRegisterService;
 import org.springframework.stereotype.Service;
 

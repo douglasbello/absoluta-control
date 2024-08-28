@@ -1,9 +1,9 @@
-package com.absolutavelas.absolutabackend.services.flavours.impl;
+package com.absolutavelas.absolutabackend.services.products.flavours.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.CandleFlavour;
 import com.absolutavelas.absolutabackend.database.repositories.products.CandleFlavourRepository;
 import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
-import com.absolutavelas.absolutabackend.services.flavours.FlavourSearchService;
+import com.absolutavelas.absolutabackend.services.products.flavours.FlavourSearchService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

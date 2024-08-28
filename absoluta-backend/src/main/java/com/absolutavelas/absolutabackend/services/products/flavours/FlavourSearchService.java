@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.services.flavours;
+package com.absolutavelas.absolutabackend.services.products.flavours;
 
 import java.util.List;
 import java.util.UUID;

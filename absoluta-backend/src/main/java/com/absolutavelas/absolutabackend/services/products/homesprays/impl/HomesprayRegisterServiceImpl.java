@@ -2,7 +2,7 @@ package com.absolutavelas.absolutabackend.services.products.homesprays.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.Homespray;
 import com.absolutavelas.absolutabackend.database.repositories.products.HomesprayRepository;
-import com.absolutavelas.absolutabackend.dtos.homesprays.HomesprayRequest;
+import com.absolutavelas.absolutabackend.dtos.products.homesprays.HomesprayRequest;
 import com.absolutavelas.absolutabackend.services.products.homesprays.HomesprayRegisterService;
 import org.springframework.stereotype.Service;
 

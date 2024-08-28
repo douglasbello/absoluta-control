@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.dtos.candles;
+package com.absolutavelas.absolutabackend.dtos.products.candles;
 
 import java.math.BigDecimal;
 import java.util.UUID;

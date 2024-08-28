@@ -1,9 +1,9 @@
-package com.absolutavelas.absolutabackend.services.flavours.impl;
+package com.absolutavelas.absolutabackend.services.products.flavours.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.HomesprayFlavour;
 import com.absolutavelas.absolutabackend.database.repositories.products.HomesprayFlavourRepository;
-import com.absolutavelas.absolutabackend.dtos.flavours.HomesprayFlavourRequest;
-import com.absolutavelas.absolutabackend.services.flavours.FlavourRegisterService;
+import com.absolutavelas.absolutabackend.dtos.products.flavours.HomesprayFlavourRequest;
+import com.absolutavelas.absolutabackend.services.products.flavours.FlavourRegisterService;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

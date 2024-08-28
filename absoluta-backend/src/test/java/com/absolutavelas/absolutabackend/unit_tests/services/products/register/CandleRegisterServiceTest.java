@@ -2,7 +2,7 @@ package com.absolutavelas.absolutabackend.unit_tests.services.products.register;
 
 import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.database.repositories.products.CandleRepository;
-import com.absolutavelas.absolutabackend.dtos.candles.CandleRequest;
+import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 import com.absolutavelas.absolutabackend.services.products.candles.impl.CandleRegisterServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

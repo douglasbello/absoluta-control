@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.dtos.homesprays;
+package com.absolutavelas.absolutabackend.dtos.products.homesprays;
 
 import java.math.BigDecimal;
 import java.util.UUID;

@@ -1,6 +1,6 @@
 package com.absolutavelas.absolutabackend.services.products.candles;
 
-import com.absolutavelas.absolutabackend.dtos.candles.CandleRequest;
+import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 
 import java.util.UUID;
 
