@@ -1,7 +1,7 @@
 package com.absolutavelas.absolutabackend.services.marketplaces.types.impl;
 
 import com.absolutavelas.absolutabackend.database.models.marketplaces.MarketplaceType;
-import com.absolutavelas.absolutabackend.database.repositories.MarketplaceTypeRepository;
+import com.absolutavelas.absolutabackend.database.repositories.marketplaces.MarketplaceTypeRepository;
 import com.absolutavelas.absolutabackend.dtos.marketplaces.types.MarketplaceTypeRequest;
 import com.absolutavelas.absolutabackend.services.marketplaces.types.MarketplaceTypeRegister;
 import org.springframework.stereotype.Service;

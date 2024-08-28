@@ -1,4 +1,4 @@
-package com.absolutavelas.absolutabackend.database.repositories;
+package com.absolutavelas.absolutabackend.database.repositories.marketplaces;
 
 import com.absolutavelas.absolutabackend.database.models.marketplaces.MarketplaceType;
 import org.springframework.data.jpa.repository.JpaRepository;
