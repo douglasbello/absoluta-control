@@ -35,6 +35,8 @@ public class HomesprayRegisterServiceImpl implements HomesprayRegisterService {
                 .size(request.size())
                 .build();
 
+        homespray.setFlavourIdentifier(request.flavour());
+
         return homesprayRepository.save(homespray);
     }
 }

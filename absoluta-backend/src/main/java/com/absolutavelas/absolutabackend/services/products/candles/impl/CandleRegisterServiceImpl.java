@@ -37,6 +37,8 @@ public class CandleRegisterServiceImpl implements CandleRegisterService {
                 .size(request.size())
                 .build();
 
+        candle.setFlavourIdentifier(request.flavour());
+
         return candleRepository.save(candle);
     }
 }
