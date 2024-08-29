@@ -6,10 +6,8 @@ import com.absolutavelas.absolutabackend.dtos.products.flavours.HomesprayFlavour
 import com.absolutavelas.absolutabackend.services.products.flavours.FlavourRegisterService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
-public class HomesprayFlavourRegisterServiceImpl implements FlavourRegisterService<HomesprayFlavourRequest> {
+public class HomesprayFlavourRegisterServiceImpl implements FlavourRegisterService<HomesprayFlavour, HomesprayFlavourRequest> {
     private final HomesprayFlavourRepository homesprayFlavourRepository;
 
     public HomesprayFlavourRegisterServiceImpl(HomesprayFlavourRepository homesprayFlavourRepository) {
@@ -17,11 +15,9 @@ public class HomesprayFlavourRegisterServiceImpl implements FlavourRegisterServi
     }
 
     @Override
-    public UUID register(HomesprayFlavourRequest request) {
+    public HomesprayFlavour register(HomesprayFlavourRequest request) {
         HomesprayFlavour flavour = new HomesprayFlavour(request.flavour());
 
-        flavour = homesprayFlavourRepository.save(flavour);
-
-        return flavour.getIdentifier();
+        return homesprayFlavourRepository.save(flavour);
     }
 }

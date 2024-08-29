@@ -6,10 +6,8 @@ import com.absolutavelas.absolutabackend.dtos.products.flavours.CandleFlavourReq
 import com.absolutavelas.absolutabackend.services.products.flavours.FlavourRegisterService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
-public class CandleFlavourRegisterServiceImpl implements FlavourRegisterService<CandleFlavourRequest> {
+public class CandleFlavourRegisterServiceImpl implements FlavourRegisterService<CandleFlavour, CandleFlavourRequest> {
     private final CandleFlavourRepository candleFlavourRepository;
 
     public CandleFlavourRegisterServiceImpl(CandleFlavourRepository candleFlavourRepository) {
@@ -17,11 +15,9 @@ public class CandleFlavourRegisterServiceImpl implements FlavourRegisterService<
     }
 
     @Override
-    public UUID register(CandleFlavourRequest request) {
+    public CandleFlavour register(CandleFlavourRequest request) {
         CandleFlavour flavour = new CandleFlavour(request.flavour());
 
-        flavour = candleFlavourRepository.save(flavour);
-
-        return flavour.getIdentifier();
+        return candleFlavourRepository.save(flavour);
     }
 }
