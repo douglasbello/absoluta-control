@@ -8,8 +8,6 @@ import com.absolutavelas.absolutabackend.services.products.flavours.impl.CandleF
 import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearch;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class CandleRegisterServiceImpl implements CandleRegisterService {
     private final CandleRepository candleRepository;
@@ -24,7 +22,7 @@ public class CandleRegisterServiceImpl implements CandleRegisterService {
     }
 
     @Override
-    public UUID register(CandleRequest request) {
+    public Candle register(CandleRequest request) {
         candleFlavourSearchService.findByIdentifier(request.flavour());
         productSizeSearch.findByIdentifier(request.size());
 
@@ -37,8 +35,6 @@ public class CandleRegisterServiceImpl implements CandleRegisterService {
                 .size(request.size())
                 .build();
 
-        candle = candleRepository.save(candle);
-
-        return candle.getIdentifier();
+        return candleRepository.save(candle);
     }
 }

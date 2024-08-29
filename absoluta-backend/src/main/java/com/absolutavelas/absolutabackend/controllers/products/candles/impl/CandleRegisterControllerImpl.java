@@ -1,0 +1,30 @@
+package com.absolutavelas.absolutabackend.controllers.products.candles.impl;
+
+import com.absolutavelas.absolutabackend.database.models.products.Candle;
+import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
+import com.absolutavelas.absolutabackend.services.products.candles.CandleRegisterService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
+
+@RestController
+@RequestMapping("/candles")
+public class CandleRegisterControllerImpl {
+    private final CandleRegisterService candleRegisterService;
+
+    public CandleRegisterControllerImpl(CandleRegisterService candleRegisterService) {
+        this.candleRegisterService = candleRegisterService;
+    }
+
+    @PostMapping
+    public ResponseEntity<Candle> register(CandleRequest request) {
+        Candle candle = candleRegisterService.register(request);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(candle.getIdentifier()).toUri();
+
+        return ResponseEntity.created(uri).body(candle);
+    }
+}

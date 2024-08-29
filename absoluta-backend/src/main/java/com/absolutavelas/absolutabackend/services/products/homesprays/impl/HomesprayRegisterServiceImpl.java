@@ -25,7 +25,7 @@ public class HomesprayRegisterServiceImpl implements HomesprayRegisterService {
     }
 
     @Override
-    public UUID register(HomesprayRequest request) {
+    public Homespray register(HomesprayRequest request) {
         homesprayFlavourSearchService.findByIdentifier(request.flavour());
         productSizeSearch.findByIdentifier(request.size());
 
@@ -38,8 +38,6 @@ public class HomesprayRegisterServiceImpl implements HomesprayRegisterService {
                 .size(request.size())
                 .build();
 
-        homespray = homesprayRepository.save(homespray);
-
-        return homespray.getIdentifier();
+        return homesprayRepository.save(homespray);
     }
 }

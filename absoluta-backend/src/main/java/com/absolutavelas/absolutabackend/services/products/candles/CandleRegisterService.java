@@ -1,9 +1,8 @@
 package com.absolutavelas.absolutabackend.services.products.candles;
 
+import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 
-import java.util.UUID;
-
 public interface CandleRegisterService {
-    UUID register(CandleRequest request);
+    Candle register(CandleRequest request);
 }
