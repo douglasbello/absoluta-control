@@ -17,11 +17,9 @@ public class MarketplaceTypeRegisterServiceImpl implements MarketplaceTypeRegist
     }
 
     @Override
-    public UUID register(MarketplaceTypeRequest request) {
+    public MarketplaceType register(MarketplaceTypeRequest request) {
         MarketplaceType type = new MarketplaceType(request.type());
 
-        type = marketplaceTypeRepository.save(type);
-
-        return type.getIdentifier();
+        return marketplaceTypeRepository.save(type);
     }
 }
