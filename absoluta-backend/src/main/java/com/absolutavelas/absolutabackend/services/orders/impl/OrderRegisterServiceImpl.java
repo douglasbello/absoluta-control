@@ -10,8 +10,6 @@ import com.absolutavelas.absolutabackend.services.orders.OrderRegisterService;
 import com.absolutavelas.absolutabackend.services.orders.PaymentTypeSearchService;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class OrderRegisterServiceImpl implements OrderRegisterService {
     private final OrderRepository orderRepository;
@@ -27,7 +25,7 @@ public class OrderRegisterServiceImpl implements OrderRegisterService {
     }
 
     @Override
-    public UUID register(OrderRequest orderRequest) {
+    public Order register(OrderRequest orderRequest) {
         paymentTypeSearchService.findByIdentifier(orderRequest.paymentTypeIdentifier());
         marketplaceSearchService.findByIdentifier(orderRequest.marketplaceIdentifier());
 
@@ -40,6 +38,6 @@ public class OrderRegisterServiceImpl implements OrderRegisterService {
             orderProductRepository.save(op);
         });
 
-        return order.getIdentifier();
+        return order;
     }
 }

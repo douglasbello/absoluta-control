@@ -23,8 +23,10 @@ public class CandleRegisterServiceImpl implements CandleRegisterService {
 
     @Override
     public Candle register(CandleRequest request) {
-        candleFlavourSearchService.findByIdentifier(request.flavour());
-        productSizeSearchService.findByIdentifier(request.size());
+        if (request.flavour() != null)
+            candleFlavourSearchService.findByIdentifier(request.flavour());
+        if (request.size() != null)
+            productSizeSearchService.findByIdentifier(request.size());
 
         Candle candle = new Candle.Builder()
                 .name(request.name())
