@@ -4,6 +4,6 @@ import com.absolutavelas.absolutabackend.dtos.marketplaces.MarketplaceRequest;
 
 import java.util.UUID;
 
-public interface MarketplaceRegister {
+public interface MarketplaceRegisterService {
     UUID register(MarketplaceRequest request);
 }

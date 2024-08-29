@@ -3,17 +3,17 @@ package com.absolutavelas.absolutabackend.services.marketplaces.types.impl;
 import com.absolutavelas.absolutabackend.database.models.marketplaces.MarketplaceType;
 import com.absolutavelas.absolutabackend.database.repositories.marketplaces.MarketplaceTypeRepository;
 import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
-import com.absolutavelas.absolutabackend.services.marketplaces.types.MarketplaceTypeSearch;
+import com.absolutavelas.absolutabackend.services.marketplaces.types.MarketplaceTypeSearchService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-public class MarketplaceTypeSearchImpl implements MarketplaceTypeSearch {
+public class MarketplaceTypeSearchServiceImpl implements MarketplaceTypeSearchService {
     private final MarketplaceTypeRepository marketplaceTypeRepository;
 
-    public MarketplaceTypeSearchImpl(MarketplaceTypeRepository marketplaceTypeRepository) {
+    public MarketplaceTypeSearchServiceImpl(MarketplaceTypeRepository marketplaceTypeRepository) {
         this.marketplaceTypeRepository = marketplaceTypeRepository;
     }
 

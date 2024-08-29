@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.UUID;
 
-public interface MarketplaceSearch {
+public interface MarketplaceSearchService {
     Marketplace findByIdentifier(UUID identifier);
     Page<Marketplace> findByName(String name, Pageable pageable);
     List<Marketplace> findByType(UUID typeIdentifier);

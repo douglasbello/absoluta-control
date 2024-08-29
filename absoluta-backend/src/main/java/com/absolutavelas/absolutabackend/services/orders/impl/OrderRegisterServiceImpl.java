@@ -5,7 +5,7 @@ import com.absolutavelas.absolutabackend.database.models.orders.OrderProduct;
 import com.absolutavelas.absolutabackend.database.repositories.orders.OrderProductRepository;
 import com.absolutavelas.absolutabackend.database.repositories.orders.OrderRepository;
 import com.absolutavelas.absolutabackend.dtos.orders.OrderRequest;
-import com.absolutavelas.absolutabackend.services.marketplaces.MarketplaceSearch;
+import com.absolutavelas.absolutabackend.services.marketplaces.MarketplaceSearchService;
 import com.absolutavelas.absolutabackend.services.orders.OrderRegisterService;
 import com.absolutavelas.absolutabackend.services.orders.PaymentTypeSearch;
 import org.springframework.stereotype.Service;
@@ -16,20 +16,20 @@ import java.util.UUID;
 public class OrderRegisterServiceImpl implements OrderRegisterService {
     private final OrderRepository orderRepository;
     private final PaymentTypeSearch paymentTypeSearch;
-    private final MarketplaceSearch marketplaceSearch;
+    private final MarketplaceSearchService marketplaceSearchService;
     private final OrderProductRepository orderProductRepository;
 
-    public OrderRegisterServiceImpl(OrderRepository orderRepository, PaymentTypeSearch paymentTypeSearch, MarketplaceSearch marketplaceSearch, OrderProductRepository orderProductRepository) {
+    public OrderRegisterServiceImpl(OrderRepository orderRepository, PaymentTypeSearch paymentTypeSearch, MarketplaceSearchService marketplaceSearchService, OrderProductRepository orderProductRepository) {
         this.orderRepository = orderRepository;
         this.paymentTypeSearch = paymentTypeSearch;
-        this.marketplaceSearch = marketplaceSearch;
+        this.marketplaceSearchService = marketplaceSearchService;
         this.orderProductRepository = orderProductRepository;
     }
 
     @Override
     public UUID register(OrderRequest orderRequest) {
         paymentTypeSearch.findByIdentifier(orderRequest.paymentTypeIdentifier());
-        marketplaceSearch.findByIdentifier(orderRequest.marketplaceIdentifier());
+        marketplaceSearchService.findByIdentifier(orderRequest.marketplaceIdentifier());
 
         Order order = new Order(orderRequest.amount(), orderRequest.subTotal(), orderRequest.discount(), orderRequest.total(), orderRequest.paymentTypeIdentifier(), orderRequest.marketplaceIdentifier());
         order = orderRepository.save(order);

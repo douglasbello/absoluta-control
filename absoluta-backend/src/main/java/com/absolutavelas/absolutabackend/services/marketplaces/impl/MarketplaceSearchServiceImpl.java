@@ -2,10 +2,9 @@ package com.absolutavelas.absolutabackend.services.marketplaces.impl;
 
 import com.absolutavelas.absolutabackend.database.models.marketplaces.Marketplace;
 import com.absolutavelas.absolutabackend.database.repositories.marketplaces.MarketplaceRepository;
-import com.absolutavelas.absolutabackend.database.repositories.marketplaces.MarketplaceTypeRepository;
 import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
-import com.absolutavelas.absolutabackend.services.marketplaces.MarketplaceSearch;
-import com.absolutavelas.absolutabackend.services.marketplaces.types.MarketplaceTypeSearch;
+import com.absolutavelas.absolutabackend.services.marketplaces.MarketplaceSearchService;
+import com.absolutavelas.absolutabackend.services.marketplaces.types.MarketplaceTypeSearchService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,13 +13,13 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class MarketplaceSearchImpl implements MarketplaceSearch {
+public class MarketplaceSearchServiceImpl implements MarketplaceSearchService {
     private final MarketplaceRepository marketplaceRepository;
-    private final MarketplaceTypeSearch marketplaceTypeSearch;
+    private final MarketplaceTypeSearchService marketplaceTypeSearch;
 
-    public MarketplaceSearchImpl(MarketplaceRepository marketplaceRepository, MarketplaceTypeSearch marketplaceTypeSearch) {
+    public MarketplaceSearchServiceImpl(MarketplaceRepository marketplaceRepository, MarketplaceTypeSearchService marketplaceTypeSearchService) {
         this.marketplaceRepository = marketplaceRepository;
-        this.marketplaceTypeSearch = marketplaceTypeSearch;
+        this.marketplaceTypeSearch = marketplaceTypeSearchService;
     }
 
     @Override

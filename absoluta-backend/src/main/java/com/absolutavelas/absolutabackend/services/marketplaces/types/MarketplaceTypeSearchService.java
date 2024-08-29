@@ -5,7 +5,7 @@ import com.absolutavelas.absolutabackend.database.models.marketplaces.Marketplac
 import java.util.List;
 import java.util.UUID;
 
-public interface MarketplaceTypeSearch {
+public interface MarketplaceTypeSearchService {
     MarketplaceType findByIdentifier(UUID identifier);
     List<MarketplaceType> findAll();
     List<MarketplaceType> findByTypeName(String type);
