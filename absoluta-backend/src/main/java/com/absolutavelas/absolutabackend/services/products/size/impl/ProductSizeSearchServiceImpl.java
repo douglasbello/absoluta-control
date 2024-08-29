@@ -3,17 +3,17 @@ package com.absolutavelas.absolutabackend.services.products.size.impl;
 import com.absolutavelas.absolutabackend.database.models.products.ProductSize;
 import com.absolutavelas.absolutabackend.database.repositories.products.ProductSizeRepository;
 import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
-import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearch;
+import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearchService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ProductSizeSearchImpl implements ProductSizeSearch {
+public class ProductSizeSearchServiceImpl implements ProductSizeSearchService {
     private final ProductSizeRepository productSizeRepository;
 
-    public ProductSizeSearchImpl(ProductSizeRepository productSizeRepository) {
+    public ProductSizeSearchServiceImpl(ProductSizeRepository productSizeRepository) {
         this.productSizeRepository = productSizeRepository;
     }
 

@@ -6,6 +6,7 @@ import com.absolutavelas.absolutabackend.dtos.products.homesprays.HomesprayReque
 import com.absolutavelas.absolutabackend.services.products.homesprays.HomesprayRegisterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/homesprays")
+@RequestMapping("/products/homesprays")
 public class HomesprayRegisterControllerImpl implements HomesprayRegisterController {
     private final HomesprayRegisterService homesprayRegisterService;
 
@@ -22,9 +23,9 @@ public class HomesprayRegisterControllerImpl implements HomesprayRegisterControl
     }
 
     @PostMapping
-    public ResponseEntity<Homespray> register(HomesprayRequest request) {
+    public ResponseEntity<Homespray> register(@RequestBody HomesprayRequest request) {
         Homespray homespray = homesprayRegisterService.register(request);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(homespray.getIdentifier()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{identifier}").buildAndExpand(homespray.getIdentifier()).toUri();
 
         return ResponseEntity.created(uri).body(homespray);
     }

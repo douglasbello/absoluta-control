@@ -5,6 +5,7 @@ import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 import com.absolutavelas.absolutabackend.services.products.candles.CandleRegisterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/candles")
+@RequestMapping("/products/candles")
 public class CandleRegisterControllerImpl {
     private final CandleRegisterService candleRegisterService;
 
@@ -21,9 +22,9 @@ public class CandleRegisterControllerImpl {
     }
 
     @PostMapping
-    public ResponseEntity<Candle> register(CandleRequest request) {
+    public ResponseEntity<Candle> register(@RequestBody CandleRequest request) {
         Candle candle = candleRegisterService.register(request);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(candle.getIdentifier()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{identifier}").buildAndExpand(candle.getIdentifier()).toUri();
 
         return ResponseEntity.created(uri).body(candle);
     }

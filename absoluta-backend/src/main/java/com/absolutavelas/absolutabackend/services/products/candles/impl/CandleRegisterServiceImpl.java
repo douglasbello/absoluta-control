@@ -5,26 +5,26 @@ import com.absolutavelas.absolutabackend.database.repositories.products.CandleRe
 import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 import com.absolutavelas.absolutabackend.services.products.candles.CandleRegisterService;
 import com.absolutavelas.absolutabackend.services.products.flavours.impl.CandleFlavourSearchServiceImpl;
-import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearch;
+import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearchService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CandleRegisterServiceImpl implements CandleRegisterService {
     private final CandleRepository candleRepository;
     private final CandleFlavourSearchServiceImpl candleFlavourSearchService;
-    private final ProductSizeSearch productSizeSearch;
+    private final ProductSizeSearchService productSizeSearchService;
 
     public CandleRegisterServiceImpl(CandleRepository candleRepository, CandleFlavourSearchServiceImpl candleFlavourSearchService,
-                                     ProductSizeSearch productSizeSearch) {
+                                     ProductSizeSearchService productSizeSearchService) {
         this.candleRepository = candleRepository;
         this.candleFlavourSearchService = candleFlavourSearchService;
-        this.productSizeSearch = productSizeSearch;
+        this.productSizeSearchService = productSizeSearchService;
     }
 
     @Override
     public Candle register(CandleRequest request) {
         candleFlavourSearchService.findByIdentifier(request.flavour());
-        productSizeSearch.findByIdentifier(request.size());
+        productSizeSearchService.findByIdentifier(request.size());
 
         Candle candle = new Candle.Builder()
                 .name(request.name())

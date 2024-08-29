@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/homesprays")
+@RequestMapping("/products/homesprays")
 public class HomespraySearchControllerImpl implements HomespraySearchController {
     private final HomespraySearchServiceImpl homespraySearchService;
 

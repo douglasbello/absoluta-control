@@ -5,7 +5,7 @@ import com.absolutavelas.absolutabackend.database.models.products.ProductSize;
 import java.util.List;
 import java.util.UUID;
 
-public interface ProductSizeSearch {
+public interface ProductSizeSearchService {
     ProductSize findByIdentifier(UUID identifier);
     List<ProductSize> findAll();
 }

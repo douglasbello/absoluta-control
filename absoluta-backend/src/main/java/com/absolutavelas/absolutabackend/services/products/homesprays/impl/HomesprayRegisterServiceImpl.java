@@ -3,25 +3,22 @@ package com.absolutavelas.absolutabackend.services.products.homesprays.impl;
 import com.absolutavelas.absolutabackend.database.models.products.Homespray;
 import com.absolutavelas.absolutabackend.database.repositories.products.HomesprayRepository;
 import com.absolutavelas.absolutabackend.dtos.products.homesprays.HomesprayRequest;
-import com.absolutavelas.absolutabackend.services.products.flavours.FlavourSearchService;
 import com.absolutavelas.absolutabackend.services.products.flavours.impl.HomesprayFlavourSearchServiceImpl;
 import com.absolutavelas.absolutabackend.services.products.homesprays.HomesprayRegisterService;
-import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearch;
+import com.absolutavelas.absolutabackend.services.products.size.ProductSizeSearchService;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 public class HomesprayRegisterServiceImpl implements HomesprayRegisterService {
     private final HomesprayRepository homesprayRepository;
     private final HomesprayFlavourSearchServiceImpl homesprayFlavourSearchService;
-    private final ProductSizeSearch productSizeSearch;
+    private final ProductSizeSearchService productSizeSearch;
 
     public HomesprayRegisterServiceImpl(HomesprayRepository homesprayRepository, HomesprayFlavourSearchServiceImpl homesprayFlavourSearchService,
-                                        ProductSizeSearch productSizeSearch) {
+                                        ProductSizeSearchService productSizeSearchService) {
         this.homesprayRepository = homesprayRepository;
         this.homesprayFlavourSearchService = homesprayFlavourSearchService;
-        this.productSizeSearch = productSizeSearch;
+        this.productSizeSearch = productSizeSearchService;
     }
 
     @Override
