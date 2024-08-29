@@ -2,10 +2,13 @@ package com.absolutavelas.absolutabackend.services.products.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.database.repositories.products.CandleRepository;
+import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
 import com.absolutavelas.absolutabackend.services.products.ProductSearchService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class CandleSearchServiceImpl implements ProductSearchService<Candle> {
@@ -13,6 +16,11 @@ public class CandleSearchServiceImpl implements ProductSearchService<Candle> {
 
     public CandleSearchServiceImpl(CandleRepository candleRepository) {
         this.candleRepository = candleRepository;
+    }
+
+    @Override
+    public Candle findByIdentifier(UUID identifier) {
+        return candleRepository.findById(identifier).orElseThrow(() -> new ResourceNotFoundException("Candle", identifier));
     }
 
     @Override

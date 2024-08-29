@@ -2,10 +2,13 @@ package com.absolutavelas.absolutabackend.services.products.impl;
 
 import com.absolutavelas.absolutabackend.database.models.products.Homespray;
 import com.absolutavelas.absolutabackend.database.repositories.products.HomesprayRepository;
+import com.absolutavelas.absolutabackend.handlers.exceptions.ResourceNotFoundException;
 import com.absolutavelas.absolutabackend.services.products.ProductSearchService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 public class HomespraySearchServiceImpl implements ProductSearchService<Homespray> {
@@ -13,6 +16,11 @@ public class HomespraySearchServiceImpl implements ProductSearchService<Homespra
 
     public HomespraySearchServiceImpl(HomesprayRepository homesprayRepository) {
         this.homesprayRepository = homesprayRepository;
+    }
+
+    @Override
+    public Homespray findByIdentifier(UUID identifier) {
+        return homesprayRepository.findById(identifier).orElseThrow(() -> new ResourceNotFoundException("Homespray", identifier));
     }
 
     @Override
