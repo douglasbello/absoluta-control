@@ -20,13 +20,11 @@ public class MarketplaceRegisterServiceImpl implements MarketplaceRegisterServic
     }
 
     @Override
-    public UUID register(MarketplaceRequest request) {
+    public Marketplace register(MarketplaceRequest request) {
         marketplaceTypeSearchService.findByIdentifier(request.typeIdentifier()); // will throw exception if not found
 
         Marketplace marketplace = new Marketplace(request.name(), request.location(), request.typeIdentifier());
 
-        marketplace = marketplaceRepository.save(marketplace);
-
-        return marketplace.getIdentifier();
+        return marketplaceRepository.save(marketplace);
     }
 }
