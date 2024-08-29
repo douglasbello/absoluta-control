@@ -3,25 +3,23 @@ package com.absolutavelas.absolutabackend.services.orders.impl;
 import com.absolutavelas.absolutabackend.database.models.orders.PaymentType;
 import com.absolutavelas.absolutabackend.database.repositories.orders.PaymentTypeRepository;
 import com.absolutavelas.absolutabackend.dtos.orders.PaymentTypeRequest;
-import com.absolutavelas.absolutabackend.services.orders.PaymentTypeRegister;
+import com.absolutavelas.absolutabackend.services.orders.PaymentTypeRegisterService;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class PaymentTypeRegisterImpl implements PaymentTypeRegister {
-    private PaymentTypeRepository paymentTypeRepository;
+public class PaymentTypeRegisterServiceImpl implements PaymentTypeRegisterService {
+    private final PaymentTypeRepository paymentTypeRepository;
 
-    public PaymentTypeRegisterImpl(PaymentTypeRepository paymentTypeRepository) {
+    public PaymentTypeRegisterServiceImpl(PaymentTypeRepository paymentTypeRepository) {
         this.paymentTypeRepository = paymentTypeRepository;
     }
 
     @Override
-    public UUID register(PaymentTypeRequest request) {
+    public PaymentType register(PaymentTypeRequest request) {
         PaymentType type = new PaymentType(request.type());
 
-        type = paymentTypeRepository.save(type);
-
-        return type.getIdentifier();
+        return paymentTypeRepository.save(type);
     }
 }

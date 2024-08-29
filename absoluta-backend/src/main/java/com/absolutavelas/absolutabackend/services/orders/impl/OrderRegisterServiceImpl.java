@@ -7,7 +7,7 @@ import com.absolutavelas.absolutabackend.database.repositories.orders.OrderRepos
 import com.absolutavelas.absolutabackend.dtos.orders.OrderRequest;
 import com.absolutavelas.absolutabackend.services.marketplaces.MarketplaceSearchService;
 import com.absolutavelas.absolutabackend.services.orders.OrderRegisterService;
-import com.absolutavelas.absolutabackend.services.orders.PaymentTypeSearch;
+import com.absolutavelas.absolutabackend.services.orders.PaymentTypeSearchService;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -15,20 +15,20 @@ import java.util.UUID;
 @Service
 public class OrderRegisterServiceImpl implements OrderRegisterService {
     private final OrderRepository orderRepository;
-    private final PaymentTypeSearch paymentTypeSearch;
+    private final PaymentTypeSearchService paymentTypeSearchService;
     private final MarketplaceSearchService marketplaceSearchService;
     private final OrderProductRepository orderProductRepository;
 
-    public OrderRegisterServiceImpl(OrderRepository orderRepository, PaymentTypeSearch paymentTypeSearch, MarketplaceSearchService marketplaceSearchService, OrderProductRepository orderProductRepository) {
+    public OrderRegisterServiceImpl(OrderRepository orderRepository, PaymentTypeSearchService paymentTypeSearchService, MarketplaceSearchService marketplaceSearchService, OrderProductRepository orderProductRepository) {
         this.orderRepository = orderRepository;
-        this.paymentTypeSearch = paymentTypeSearch;
+        this.paymentTypeSearchService = paymentTypeSearchService;
         this.marketplaceSearchService = marketplaceSearchService;
         this.orderProductRepository = orderProductRepository;
     }
 
     @Override
     public UUID register(OrderRequest orderRequest) {
-        paymentTypeSearch.findByIdentifier(orderRequest.paymentTypeIdentifier());
+        paymentTypeSearchService.findByIdentifier(orderRequest.paymentTypeIdentifier());
         marketplaceSearchService.findByIdentifier(orderRequest.marketplaceIdentifier());
 
         Order order = new Order(orderRequest.amount(), orderRequest.subTotal(), orderRequest.discount(), orderRequest.total(), orderRequest.paymentTypeIdentifier(), orderRequest.marketplaceIdentifier());
