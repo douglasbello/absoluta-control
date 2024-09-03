@@ -10,5 +10,5 @@ import java.util.UUID;
 public interface MarketplaceSearchService {
     Marketplace findByIdentifier(UUID identifier);
     Page<Marketplace> findByName(String name, Pageable pageable);
-    List<Marketplace> findByType(UUID typeIdentifier);
+    Page<Marketplace> findByType(UUID typeIdentifier, Pageable pageable);
 }

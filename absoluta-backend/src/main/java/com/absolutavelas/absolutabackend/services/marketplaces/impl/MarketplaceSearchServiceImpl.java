@@ -33,9 +33,9 @@ public class MarketplaceSearchServiceImpl implements MarketplaceSearchService {
     }
 
     @Override
-    public List<Marketplace> findByType(UUID typeIdentifier) {
+    public Page<Marketplace> findByType(UUID typeIdentifier, Pageable pageable) {
         marketplaceTypeSearch.findByIdentifier(typeIdentifier);
 
-        return marketplaceRepository.findByType(typeIdentifier);
+        return marketplaceRepository.findByType(typeIdentifier, pageable);
     }
 }

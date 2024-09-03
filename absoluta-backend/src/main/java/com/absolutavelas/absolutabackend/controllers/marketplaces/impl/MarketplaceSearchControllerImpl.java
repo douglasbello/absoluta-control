@@ -34,7 +34,7 @@ public class MarketplaceSearchControllerImpl implements MarketplaceSearchControl
     }
 
     @GetMapping("/type/{typeIdentifier}")
-    public ResponseEntity<List<Marketplace>> findByType(@PathVariable UUID typeIdentifier) {
-        return ResponseEntity.ok().body(marketplaceSearchService.findByType(typeIdentifier));
+    public ResponseEntity<Page<Marketplace>> findByType(@PathVariable UUID typeIdentifier, Pageable pageable) {
+        return ResponseEntity.ok().body(marketplaceSearchService.findByType(typeIdentifier, pageable));
     }
 }
