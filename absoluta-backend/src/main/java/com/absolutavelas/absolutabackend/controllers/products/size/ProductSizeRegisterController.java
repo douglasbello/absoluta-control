@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 
-@Tag(name = "Product size register controller")
+@Tag(name = "Product size register endpoints.")
 public interface ProductSizeRegisterController {
     @Operation(summary = "Register a product.")
     @ApiResponses(value = {

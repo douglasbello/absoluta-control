@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Product size search controller")
+@Tag(name = "Product size search endpoints.")
 public interface ProductSizeSearchController {
     @Operation(summary = "Find a product size by it's identifier.")
     @ApiResponses(value = {
