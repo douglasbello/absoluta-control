@@ -12,7 +12,8 @@ import org.springframework.http.ResponseEntity;
 public interface MarketplaceTypeRegisterController {
     @Operation(summary = "Registers Marketplace type.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Returns Marketplace type in body and the URI in header.")
+            @ApiResponse(responseCode = "201", description = "Returns Marketplace type in body and the URI in header."),
+            @ApiResponse(responseCode = "500", description = "Internal server error.")
     })
     ResponseEntity<MarketplaceType> register(MarketplaceTypeRequest request);
 }
