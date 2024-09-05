@@ -2,6 +2,7 @@ package com.absolutavelas.absolutabackend.controllers.orders;
 
 import com.absolutavelas.absolutabackend.database.models.orders.Order;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,15 +17,15 @@ public interface OrderSearchController {
     @Operation(summary = "Find order by identifier.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Return order found."),
-            @ApiResponse(responseCode = "404", description = "Order not found."),
-            @ApiResponse(responseCode = "500", description = "Internal server error.")
+            @ApiResponse(responseCode = "404", description = "Order not found.", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
     })
     ResponseEntity<Order> findByIdentifier(UUID identifier);
 
     @Operation(summary = "Finds all paginated orders.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Return orders paginated."),
-            @ApiResponse(responseCode = "500", description = "Internal server error.")
+            @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
     })
     ResponseEntity<Page<Order>> findAll(Pageable pageable);
 }

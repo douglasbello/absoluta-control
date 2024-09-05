@@ -3,6 +3,7 @@ package com.absolutavelas.absolutabackend.controllers.marketplaces.types;
 import com.absolutavelas.absolutabackend.database.models.marketplaces.MarketplaceType;
 import com.absolutavelas.absolutabackend.dtos.marketplaces.types.MarketplaceTypeRequest;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,7 +14,7 @@ public interface MarketplaceTypeRegisterController {
     @Operation(summary = "Registers Marketplace type.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Returns Marketplace type in body and the URI in header."),
-            @ApiResponse(responseCode = "500", description = "Internal server error.")
+            @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
     })
     ResponseEntity<MarketplaceType> register(MarketplaceTypeRequest request);
 }

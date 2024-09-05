@@ -3,6 +3,7 @@ package com.absolutavelas.absolutabackend.controllers.products.homesprays;
 import com.absolutavelas.absolutabackend.database.models.products.Homespray;
 import com.absolutavelas.absolutabackend.dtos.products.homesprays.HomesprayRequest;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,7 +14,7 @@ public interface HomesprayRegisterController {
     @Operation(summary = "Registers homespray.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Returns homespray in the body and URI in the header."),
-            @ApiResponse(responseCode = "500", description = "Internal server error.")
+            @ApiResponse(responseCode = "500", description = "Internal server error.", content = @Content)
     })
     ResponseEntity<Homespray> register(HomesprayRequest request);
 }
