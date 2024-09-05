@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Products flavours endpoint.")
+@Tag(name = "Flavours search endpoints.")
 public interface FlavourSearchController<T> {
     @Operation(summary = "Finds flavour by identifier.")
     @ApiResponses(value = {
