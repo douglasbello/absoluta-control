@@ -6,6 +6,7 @@ import com.absolutavelas.absolutabackend.dtos.orders.OrderRequest;
 import com.absolutavelas.absolutabackend.services.orders.OrderRegisterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,7 +23,7 @@ public class OrderRegisterControllerImpl implements OrderRegisterController {
     }
 
     @PostMapping
-    public ResponseEntity<Order> register(OrderRequest request) {
+    public ResponseEntity<Order> register(@RequestBody OrderRequest request) {
         Order order = orderRegisterService.register(request);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{identifier}").buildAndExpand(order.getIdentifier()).toUri();
 

@@ -12,7 +12,7 @@ import java.util.UUID;
 public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "identifier", length = 36, columnDefinition = "UUID")
+    @Column(name = "identifier", length = 36)
     protected UUID identifier;
     @Column(name = "name", length = 255)
     protected String name;
