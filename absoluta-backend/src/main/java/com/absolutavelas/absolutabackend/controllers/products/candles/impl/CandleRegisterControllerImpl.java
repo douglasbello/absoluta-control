@@ -1,5 +1,6 @@
 package com.absolutavelas.absolutabackend.controllers.products.candles.impl;
 
+import com.absolutavelas.absolutabackend.controllers.products.candles.CandleRegisterController;
 import com.absolutavelas.absolutabackend.database.models.products.Candle;
 import com.absolutavelas.absolutabackend.dtos.products.candles.CandleRequest;
 import com.absolutavelas.absolutabackend.services.products.candles.CandleRegisterService;
@@ -14,7 +15,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/products/candles")
-public class CandleRegisterControllerImpl {
+public class CandleRegisterControllerImpl implements CandleRegisterController {
     private final CandleRegisterService candleRegisterService;
 
     public CandleRegisterControllerImpl(CandleRegisterService candleRegisterService) {
