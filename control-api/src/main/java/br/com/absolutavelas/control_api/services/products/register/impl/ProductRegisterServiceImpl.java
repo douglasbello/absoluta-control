@@ -5,7 +5,7 @@ import br.com.absolutavelas.control_api.database.models.Product;
 import br.com.absolutavelas.control_api.database.models.ProductCategory;
 import br.com.absolutavelas.control_api.database.models.ProductSize;
 import br.com.absolutavelas.control_api.database.repositories.ProductRepository;
-import br.com.absolutavelas.control_api.dtos.products.ProductRequestDTO;
+import br.com.absolutavelas.control_api.dtos.products.ProductRequest;
 import br.com.absolutavelas.control_api.services.products.register.ProductRegisterService;
 import br.com.absolutavelas.control_api.services.products.search.FlavourSearchService;
 import br.com.absolutavelas.control_api.services.products.search.ProductCategorySearchService;
@@ -34,7 +34,7 @@ public class ProductRegisterServiceImpl implements ProductRegisterService {
     }
 
     @Override
-    public Product register(ProductRequestDTO dto) {
+    public Product register(ProductRequest dto) {
         Flavour flavour = flavourSearchService.findById(dto.flavourId());
         ProductCategory category = productCategorySearchService.findById(dto.categoryId());
         ProductSize size = productSizeSearchService.findById(dto.sizeId());
