@@ -17,11 +17,11 @@ public class Order {
     @Column(name = "amount")
     private Long amount;
     @Column(name = "sub_total")
-    private BigDecimal subTotal;
+    private BigDecimal subTotal = BigDecimal.ZERO;
     @Column(name = "discount")
-    private BigDecimal discount;
+    private BigDecimal discount = BigDecimal.ZERO;
     @Column(name = "total")
-    private BigDecimal total;
+    private BigDecimal total = BigDecimal.ZERO;
     @ManyToOne
     @JoinColumn(name = "marketplace_id")
     @JsonManagedReference
@@ -39,11 +39,8 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long amount, BigDecimal subTotal, BigDecimal discount, BigDecimal total, Marketplace marketplace, PaymentType paymentType) {
-        this.amount = amount;
-        this.subTotal = subTotal;
+    public Order(BigDecimal discount, Marketplace marketplace, PaymentType paymentType) {
         this.discount = discount;
-        this.total = total;
         this.marketplace = marketplace;
         this.paymentType = paymentType;
     }

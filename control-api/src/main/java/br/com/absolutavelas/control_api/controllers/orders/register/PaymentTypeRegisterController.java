@@ -1,7 +1,7 @@
 package br.com.absolutavelas.control_api.controllers.orders.register;
 
 import br.com.absolutavelas.control_api.database.models.PaymentType;
-import br.com.absolutavelas.control_api.dtos.marketplaces.PaymentTypeRequest;
+import br.com.absolutavelas.control_api.dtos.orders.PaymentTypeRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

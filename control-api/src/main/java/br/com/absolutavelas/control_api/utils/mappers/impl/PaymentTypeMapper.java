@@ -1,7 +1,7 @@
 package br.com.absolutavelas.control_api.utils.mappers.impl;
 
 import br.com.absolutavelas.control_api.database.models.PaymentType;
-import br.com.absolutavelas.control_api.dtos.marketplaces.PaymentTypeRequest;
+import br.com.absolutavelas.control_api.dtos.orders.PaymentTypeRequest;
 import br.com.absolutavelas.control_api.utils.mappers.Mapper;
 import org.springframework.stereotype.Component;
 
