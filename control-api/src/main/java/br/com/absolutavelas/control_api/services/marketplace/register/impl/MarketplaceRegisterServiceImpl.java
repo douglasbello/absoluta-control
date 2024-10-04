@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MarketplaceRegisterServiceImpl implements MarketplaceRegisterService {
-    private MarketplaceRepository marketplaceRepository;
+    private final MarketplaceRepository marketplaceRepository;
 
     public MarketplaceRegisterServiceImpl(MarketplaceRepository marketplaceRepository) {
         this.marketplaceRepository = marketplaceRepository;
