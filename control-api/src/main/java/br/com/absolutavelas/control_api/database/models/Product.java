@@ -45,6 +45,14 @@ public class Product {
     public Product() {
     }
 
+    public Product(String name, BigDecimal price, String description, boolean isActive, long stockAmount) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.isActive = isActive;
+        this.stockAmount = stockAmount;
+    }
+
     public Product(String name, BigDecimal price, String description, boolean isActive, long stockAmount, Flavour flavour, ProductCategory category, ProductSize size) {
         this.name = name;
         this.price = price;
