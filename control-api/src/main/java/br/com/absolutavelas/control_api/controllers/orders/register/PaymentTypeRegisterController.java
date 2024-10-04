@@ -1,4 +1,4 @@
-package br.com.absolutavelas.control_api.controllers.register.marketplaces.register;
+package br.com.absolutavelas.control_api.controllers.orders.register;
 
 import br.com.absolutavelas.control_api.database.models.PaymentType;
 import br.com.absolutavelas.control_api.dtos.marketplaces.PaymentTypeRequest;

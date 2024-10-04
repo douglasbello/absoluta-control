@@ -1,6 +1,6 @@
-package br.com.absolutavelas.control_api.controllers.register.products.impl;
+package br.com.absolutavelas.control_api.controllers.products.register.impl;
 
-import br.com.absolutavelas.control_api.controllers.register.products.FlavourRegisterController;
+import br.com.absolutavelas.control_api.controllers.products.register.FlavourRegisterController;
 import br.com.absolutavelas.control_api.database.models.Flavour;
 import br.com.absolutavelas.control_api.dtos.products.FlavourRequest;
 import br.com.absolutavelas.control_api.services.products.register.FlavourRegisterService;

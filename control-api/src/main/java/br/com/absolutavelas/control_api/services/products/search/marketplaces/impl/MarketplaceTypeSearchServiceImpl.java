@@ -1,7 +1,6 @@
 package br.com.absolutavelas.control_api.services.products.search.marketplaces.impl;
 
 import br.com.absolutavelas.control_api.database.models.MarketplaceType;
-import br.com.absolutavelas.control_api.database.repositories.MarketplaceRepository;
 import br.com.absolutavelas.control_api.database.repositories.MarketplaceTypeRepository;
 import br.com.absolutavelas.control_api.handlers.exceptions.NotFoundException;
 import br.com.absolutavelas.control_api.services.products.search.marketplaces.MarketplaceTypeSearchService;

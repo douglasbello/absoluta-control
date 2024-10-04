@@ -1,4 +1,4 @@
-package br.com.absolutavelas.control_api.controllers.register.products;
+package br.com.absolutavelas.control_api.controllers.products.register;
 
 import br.com.absolutavelas.control_api.database.models.Product;
 import br.com.absolutavelas.control_api.dtos.products.ProductRequest;

@@ -30,6 +30,6 @@ public class MarketplaceRegisterServiceImpl implements MarketplaceRegisterServic
         Marketplace marketplace = marketplaceMapper.requestToEntity(request);
         marketplace.setType(type);
 
-        return marketplace;
+        return marketplaceRepository.save(marketplace);
     }
 }

@@ -1,6 +1,6 @@
-package br.com.absolutavelas.control_api.controllers.register.products.impl;
+package br.com.absolutavelas.control_api.controllers.products.register.impl;
 
-import br.com.absolutavelas.control_api.controllers.register.products.ProductCategoryRegisterController;
+import br.com.absolutavelas.control_api.controllers.products.register.ProductCategoryRegisterController;
 import br.com.absolutavelas.control_api.database.models.ProductCategory;
 import br.com.absolutavelas.control_api.dtos.products.ProductCategoryRequest;
 import br.com.absolutavelas.control_api.services.products.register.ProductCategoryRegisterService;

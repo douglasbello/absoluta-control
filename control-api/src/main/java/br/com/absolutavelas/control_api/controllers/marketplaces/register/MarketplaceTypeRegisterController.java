@@ -1,4 +1,4 @@
-package br.com.absolutavelas.control_api.controllers.register.marketplaces.register;
+package br.com.absolutavelas.control_api.controllers.marketplaces.register;
 
 import br.com.absolutavelas.control_api.database.models.MarketplaceType;
 import br.com.absolutavelas.control_api.dtos.marketplaces.MarketplaceTypeRequest;
