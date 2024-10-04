@@ -12,7 +12,8 @@ import org.springframework.http.ResponseEntity;
 public interface ProductRegisterController {
     @Operation(summary = "Cadastra um produto no banco.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Produto cadastrado com sucesso.")
+            @ApiResponse(responseCode = "201", description = "Produto cadastrado com sucesso."),
+            @ApiResponse(responseCode = "404", description = "Alguma entidade relacionada ao produto não foi encontrada.")
     })
     ResponseEntity<Product> register(ProductRequest request);
 }
