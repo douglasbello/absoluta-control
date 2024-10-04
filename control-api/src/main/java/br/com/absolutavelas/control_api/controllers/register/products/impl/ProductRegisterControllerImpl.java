@@ -6,8 +6,12 @@ import br.com.absolutavelas.control_api.dtos.products.ProductRequest;
 import br.com.absolutavelas.control_api.services.products.register.ProductRegisterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/products")
@@ -19,7 +23,10 @@ public class ProductRegisterControllerImpl implements ProductRegisterController 
     }
 
     @PostMapping
-    public ResponseEntity<Product> register(ProductRequest request) {
-        return ResponseEntity.ok().body(productRegisterService.register(request));
+    public ResponseEntity<Product> register(@RequestBody ProductRequest request) {
+        Product created = productRegisterService.register(request);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(created.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(created);
     }
 }

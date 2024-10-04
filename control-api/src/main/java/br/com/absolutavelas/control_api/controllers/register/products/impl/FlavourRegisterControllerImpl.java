@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/products/flavours")
@@ -21,6 +24,9 @@ public class FlavourRegisterControllerImpl implements FlavourRegisterController 
 
     @PostMapping
     public ResponseEntity<Flavour> register(@RequestBody FlavourRequest request) {
-        return ResponseEntity.ok().body(flavourRegisterService.register(request));
+        Flavour created = flavourRegisterService.register(request);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(created.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(created);
     }
 }
