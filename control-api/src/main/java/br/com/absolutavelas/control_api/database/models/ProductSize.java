@@ -10,26 +10,26 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "flavours")
-public class Flavour {
+@Table(name = "product_sizes")
+public class ProductSize {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name", length = 50)
+    @Column(name = "name", length = 40)
     private String name;
+    @OneToMany(mappedBy = "size", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Product> products = new ArrayList<>();
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-    @OneToMany(mappedBy = "flavour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference
-    private List<Product> products = new ArrayList<>();
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Flavour() {
+    public ProductSize() {
     }
 
-    public Flavour(String name) {
+    public ProductSize(String name) {
         this.name = name;
     }
 
@@ -77,8 +77,8 @@ public class Flavour {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Flavour flavour = (Flavour) o;
-        return Objects.equals(id, flavour.id);
+        ProductSize that = (ProductSize) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Flavour {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Flavour{");
+        final StringBuffer sb = new StringBuffer("ProductSize{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", createdAt=").append(createdAt);

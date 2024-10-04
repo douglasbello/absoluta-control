@@ -7,29 +7,28 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Table(name = "flavours")
-public class Flavour {
+@Table(name = "product_categories")
+public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "name", length = 50)
     private String name;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Product> products = new ArrayList<>();
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-    @OneToMany(mappedBy = "flavour", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference
-    private List<Product> products = new ArrayList<>();
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Flavour() {
+    public ProductCategory() {
     }
 
-    public Flavour(String name) {
+    public ProductCategory(String name) {
         this.name = name;
     }
 
@@ -74,21 +73,8 @@ public class Flavour {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Flavour flavour = (Flavour) o;
-        return Objects.equals(id, flavour.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Flavour{");
+        final StringBuffer sb = new StringBuffer("ProductCategory{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", createdAt=").append(createdAt);
