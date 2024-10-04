@@ -1,7 +1,6 @@
 package br.com.absolutavelas.control_api.database.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -11,20 +10,14 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "marketplaces")
-public class Marketplace {
+@Table(name = "payment_types")
+public class PaymentType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "name", length = 80)
+    @Column(name = "name", length = 50)
     private String name;
-    @Column(name = "location", length = 255)
-    private String location;
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    @JsonManagedReference
-    private MarketplaceType type;
-    @OneToMany(mappedBy = "marketplace", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "paymentType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Order> orders = new ArrayList<>();
     @CreationTimestamp
@@ -33,18 +26,11 @@ public class Marketplace {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Marketplace() {
+    public PaymentType() {
     }
 
-    public Marketplace(String name, String location, MarketplaceType type) {
+    public PaymentType(String name) {
         this.name = name;
-        this.location = location;
-        this.type = type;
-    }
-
-    public Marketplace(String name, MarketplaceType type) {
-        this.name = name;
-        this.type = type;
     }
 
     public Integer getId() {
@@ -63,20 +49,12 @@ public class Marketplace {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public MarketplaceType getType() {
-        return type;
-    }
-
-    public void setType(MarketplaceType type) {
-        this.type = type;
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -99,7 +77,7 @@ public class Marketplace {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Marketplace that = (Marketplace) o;
+        PaymentType that = (PaymentType) o;
         return Objects.equals(id, that.id);
     }
 
@@ -110,11 +88,9 @@ public class Marketplace {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Marketplace{");
+        final StringBuffer sb = new StringBuffer("PaymentType{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
-        sb.append(", location='").append(location).append('\'');
-        sb.append(", type=").append(type);
         sb.append(", createdAt=").append(createdAt);
         sb.append(", updatedAt=").append(updatedAt);
         sb.append('}');
