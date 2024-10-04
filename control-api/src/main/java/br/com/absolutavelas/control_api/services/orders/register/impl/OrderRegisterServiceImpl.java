@@ -8,6 +8,7 @@ import br.com.absolutavelas.control_api.services.orders.register.OrderRegisterSe
 import br.com.absolutavelas.control_api.services.products.search.marketplaces.MarketplaceSearchService;
 import br.com.absolutavelas.control_api.services.products.search.marketplaces.PaymentTypeSearchService;
 import br.com.absolutavelas.control_api.services.products.search.products.ProductSearchService;
+import br.com.absolutavelas.control_api.services.products.update.ProductUpdateService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,23 +22,25 @@ public class OrderRegisterServiceImpl implements OrderRegisterService {
     private final OrderProductRegisterService orderProductRegisterService;
     private final MarketplaceSearchService marketplaceSearchService;
     private final ProductSearchService productSearchService;
+    private final ProductUpdateService productUpdateService;
 
     public OrderRegisterServiceImpl(OrderRepository orderRepository,
                                     PaymentTypeSearchService paymentTypeSearchService,
                                     OrderProductRegisterService orderProductRegisterService,
                                     MarketplaceSearchService marketplaceSearchService,
-                                    ProductSearchService productSearchService) {
+                                    ProductSearchService productSearchService,
+                                    ProductUpdateService productUpdateService) {
         this.orderRepository = orderRepository;
         this.paymentTypeSearchService = paymentTypeSearchService;
         this.orderProductRegisterService = orderProductRegisterService;
         this.marketplaceSearchService = marketplaceSearchService;
         this.productSearchService = productSearchService;
+        this.productUpdateService = productUpdateService;
     }
 
     @Transactional
     @Override
     public Order register(OrderRequest request) {
-        System.out.println(request);
         PaymentType type = paymentTypeSearchService.findById(request.paymentTypeId());
         Marketplace marketplace = marketplaceSearchService.findById(request.marketplaceId());
 
@@ -47,8 +50,9 @@ public class OrderRegisterServiceImpl implements OrderRegisterService {
         AtomicLong amount = new AtomicLong();
         Order finalOrder = order;
         request.productAmounts().forEach(p -> {
-            System.out.println(p);
             Product product = productSearchService.findById(p.productId());
+            product.setStockAmount(product.getStockAmount() - p.amount());
+            productUpdateService.update(product);
             OrderProduct op = new OrderProduct(finalOrder.getId(), p.productId(), p.amount());
             orderProductRegisterService.register(op);
             amount.addAndGet(p.amount());
