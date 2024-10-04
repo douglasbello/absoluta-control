@@ -36,6 +36,11 @@ public class Marketplace {
     public Marketplace() {
     }
 
+    public Marketplace(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
+
     public Marketplace(String name, String location, MarketplaceType type) {
         this.name = name;
         this.location = location;

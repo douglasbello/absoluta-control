@@ -1,9 +1,9 @@
-package br.com.absolutavelas.control_api.services.products.search.impl;
+package br.com.absolutavelas.control_api.services.products.search.products.impl;
 
 import br.com.absolutavelas.control_api.database.models.ProductCategory;
 import br.com.absolutavelas.control_api.database.repositories.ProductCategoryRepository;
 import br.com.absolutavelas.control_api.handlers.exceptions.NotFoundException;
-import br.com.absolutavelas.control_api.services.products.search.ProductCategorySearchService;
+import br.com.absolutavelas.control_api.services.products.search.products.ProductCategorySearchService;
 import org.springframework.stereotype.Service;
 
 @Service

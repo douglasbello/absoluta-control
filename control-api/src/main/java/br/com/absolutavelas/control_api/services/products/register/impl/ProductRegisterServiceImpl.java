@@ -7,9 +7,9 @@ import br.com.absolutavelas.control_api.database.models.ProductSize;
 import br.com.absolutavelas.control_api.database.repositories.ProductRepository;
 import br.com.absolutavelas.control_api.dtos.products.ProductRequest;
 import br.com.absolutavelas.control_api.services.products.register.ProductRegisterService;
-import br.com.absolutavelas.control_api.services.products.search.FlavourSearchService;
-import br.com.absolutavelas.control_api.services.products.search.ProductCategorySearchService;
-import br.com.absolutavelas.control_api.services.products.search.ProductSizeSearchService;
+import br.com.absolutavelas.control_api.services.products.search.products.FlavourSearchService;
+import br.com.absolutavelas.control_api.services.products.search.products.ProductCategorySearchService;
+import br.com.absolutavelas.control_api.services.products.search.products.ProductSizeSearchService;
 import br.com.absolutavelas.control_api.utils.mappers.impl.ProductMapper;
 import org.springframework.stereotype.Service;
 

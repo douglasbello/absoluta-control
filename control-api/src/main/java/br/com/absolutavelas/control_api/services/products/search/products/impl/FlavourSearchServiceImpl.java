@@ -1,9 +1,9 @@
-package br.com.absolutavelas.control_api.services.products.search.impl;
+package br.com.absolutavelas.control_api.services.products.search.products.impl;
 
 import br.com.absolutavelas.control_api.database.models.Flavour;
 import br.com.absolutavelas.control_api.database.repositories.FlavourRepository;
 import br.com.absolutavelas.control_api.handlers.exceptions.NotFoundException;
-import br.com.absolutavelas.control_api.services.products.search.FlavourSearchService;
+import br.com.absolutavelas.control_api.services.products.search.products.FlavourSearchService;
 import org.springframework.stereotype.Service;
 
 @Service
