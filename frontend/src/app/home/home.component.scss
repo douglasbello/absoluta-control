@@ -1,9 +1,9 @@
 @import "../../styles.scss";
 
 .main {
+  margin-top: 65px;
   color: red;
   margin-left: 180px;
-  margin-top: 65px;
   padding: 0 10px;
   background-color: $dark-purple-background;
   height: 1900px;
@@ -13,4 +13,20 @@
   border-top-width: 0;
   border-left-width: 0;
   border-right-width: 0;
+}
+
+.content {
+  height: 90%;
+  margin: 0 60px 0 60px;
+  position: relative;
+  border-top: 0;
+  width: calc(100% - 120px);
+}
+
+.dashboard {
+  position: static;
+}
+
+.dashboard h2 {
+  margin-top: 40px;
 }
