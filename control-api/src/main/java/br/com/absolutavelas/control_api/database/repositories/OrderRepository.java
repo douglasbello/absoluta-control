@@ -2,6 +2,11 @@ package br.com.absolutavelas.control_api.database.repositories;
 
 import br.com.absolutavelas.control_api.database.models.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+import java.util.List;
+
+public interface OrderRepository extends JpaRepository<Order, Integer>, JpaSpecificationExecutor<Order> {
+    List<Order> findByMarketplaceId(Integer id);
+    List<Order> findAllByPaymentTypeId(Integer id);
 }
