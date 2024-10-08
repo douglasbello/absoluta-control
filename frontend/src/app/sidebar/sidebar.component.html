@@ -1,0 +1,24 @@
+<div class="sidenav">
+  <div class="items">
+    <a href="#">
+      <mat-icon aria-hidden="true" aria-label="Home" fontIcon="home"></mat-icon> Home
+    </a>
+    <button class="dropdown-btn" (click)="changeProductsDropdownState()">
+      <mat-icon aria-hidden="true" aria-label="Produtos" fontIcon="inventory_2"></mat-icon> Produtos <mat-icon aria-hidden="true" aria-label="Dropdown" fontIcon="arrow_drop_down" class="arrow_drop_down"></mat-icon>
+    </button>
+    <div class="dropdown-container" *ngIf="productsDropdown">
+      <a href="#">Aromas</a>
+      <a href="#">Categorias</a>
+      <a href="#">Estoque</a>
+      <a href="#">Tamanhos</a>
+    </div>
+    <button class="dropdown-btn" (click)="changeSalesDropdownState()">
+      <mat-icon aria-hidden="true" aria-label="Vendas" fontIcon="point_of_sale"></mat-icon> Vendas <mat-icon aria-hidden="true" aria-label="Dropdown" fontIcon="arrow_drop_down" class="arrow_drop_down"></mat-icon>
+    </button>
+    <div class="dropdown-container" *ngIf="salesDropdown">
+      <a href="#">Marketplace</a>
+      <a href="#">Tipos de Pagamento</a>
+      <a href="#">Vendas</a>
+    </div>
+  </div>
+</div>
