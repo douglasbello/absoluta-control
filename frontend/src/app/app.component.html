@@ -1,3 +1,9 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
-<app-home></app-home>
+<div class="container">
+  <app-sidebar (menuStateChanged)="handleMenuStateChange($event)"></app-sidebar>
+  <app-header [isMenuCollapsed]="isMenuCollapsed"></app-header>
+  <div class="main-content" [class.collapsed]="isMenuCollapsed">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

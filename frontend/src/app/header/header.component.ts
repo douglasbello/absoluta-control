@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
@@ -11,5 +11,5 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
+  @Input() isMenuCollapsed: boolean = false;
 }

@@ -1,0 +1,22 @@
+@import "../styles.scss";
+
+.container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 180px; /* Espaço reservado para o sidebar */
+  transition: margin-left 0.3s;
+
+  &.collapsed {
+    margin-left: 60px; /* Ajusta quando o menu está colapsado */
+  }
+
+  .page-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 65px;
+    background: $dark-purple-background;
+  }
+}

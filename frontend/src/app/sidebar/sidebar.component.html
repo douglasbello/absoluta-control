@@ -1,5 +1,10 @@
-<div class="sidenav">
-  <div class="items">
+<div class="sidenav" [class.collapsed]="isMenuCollapsed">
+  <div class="menu">
+    <a href="#" (click)="toggleMenu()">
+      <mat-icon aria-hidden="true" aria-label="Menu" fontIcon="menu"></mat-icon>
+    </a>
+  </div>
+  <div class="items" *ngIf="!isMenuCollapsed">
     <a href="#">
       <mat-icon aria-hidden="true" aria-label="Home" fontIcon="home"></mat-icon> Home
     </a>

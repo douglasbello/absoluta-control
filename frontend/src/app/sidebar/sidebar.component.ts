@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIcon } from "@angular/material/icon";
 import { NgIf } from "@angular/common";
 
@@ -15,6 +15,9 @@ import { NgIf } from "@angular/common";
 export class SidebarComponent {
   productsDropdown: boolean = false;
   salesDropdown: boolean = false;
+  isMenuCollapsed: boolean = false;
+
+  @Output() menuStateChanged = new EventEmitter<boolean>();
 
   changeProductsDropdownState(): void {
     this.productsDropdown = !this.productsDropdown;
@@ -22,5 +25,10 @@ export class SidebarComponent {
 
   changeSalesDropdownState(): void {
     this.salesDropdown = !this.salesDropdown;
+  }
+
+  toggleMenu(): void {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
+    this.menuStateChanged.emit(this.isMenuCollapsed);
   }
 }
